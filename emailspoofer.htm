@@ -9,6 +9,7 @@ function sendmail(){
     to = $("#to").val();
     subject = $("#subject").val();
     message = $("#message").val();
+    password = $("#password").val();
     $.post(
         'process.php',
         {
@@ -16,7 +17,8 @@ function sendmail(){
             from: from,
             to: to,
             subject: subject,
-            message: message
+            message: message,
+            password: password
         },
         function(data){
             $('#feedback').html(data);
@@ -41,6 +43,7 @@ From Address: <input type="text" id="from" value="fakeemailer@albertyw.mit.edu" 
 Recipient Address: <input type="text" id="to" size="40"/><br />
 Subject: <input type="text" id="subject" size="40"/><br />
 Message: <br /><textarea id="message" cols="50" rows="10"></textarea><br />
+Password: <input type="password" id="password" size="40" /><br />
 <input type="submit" onclick="javascript:sendmail()" value="SEND"/>
 <div id="feedback"></div>
 

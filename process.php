@@ -1,4 +1,9 @@
 <?php
+#Check the password
+if($_POST['password'] != 'PASSWORD'){
+    die('Wrong Password.');
+}
+
 $headers = $_POST['headers'];
 $from = $_POST['from'];
 $to = $_POST['to'];
