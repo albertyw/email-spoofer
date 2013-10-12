@@ -1,6 +1,10 @@
 <?php
 #Check the password
-if($_POST['password'] != 'PASSWORD'){
+$fileName = 'password';
+$handle = fopen($fileName, 'r');
+$password = fread($handle, filesize($fileName));
+fclose($handle);
+if($_POST['password'] != $password){
     die('Wrong Password.');
 }
 
